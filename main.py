@@ -15,6 +15,8 @@
 from PIL import Image, ImageFilter
 import os
 import random
+import winsound
+import time
 from pydub import AudioSegment
 from pydub.utils import make_chunks
 
@@ -56,4 +58,9 @@ print("\__|                                                                     
 print("                                                                                                       ")
 
 for j in files : 
+  frequency = random.randint(300, 8000)  # random frequency between 300 and 3000 Hz
+  duration = random.randint(100, 5000)  # random duration between 100 and 1000 ms
+  winsound.Beep(frequency, duration)
   os.startfile(j)
+
+    
