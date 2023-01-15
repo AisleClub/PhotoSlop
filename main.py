@@ -15,14 +15,12 @@
 from PIL import Image, ImageFilter
 import os
 import random
-import winsound
 import time
-from pydub import AudioSegment
-from pydub.utils import make_chunks
-
+import winsound
+directory = os.getcwd()
 files = []
 
-for file in os.listdir():
+for file in os.listdir(): 
   if file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png') or file.endswith('.svg') :
     files.append(file)
 
@@ -57,10 +55,13 @@ print("$$ |                                                                     
 print("\__|                                                                               \__|                ")
 print("                                                                                                       ")
 
-for j in files : 
-  frequency = random.randint(300, 8000)  # random frequency between 300 and 3000 Hz
-  duration = random.randint(100, 5000)  # random duration between 100 and 1000 ms
-  winsound.Beep(frequency, duration)
-  os.startfile(j)
 
-    
+for filename in os.listdir(directory): 
+  if filename.endswith(".png"):
+      frequency = random.randint(500, 8000)  
+      # random frequency between 300 and 3000 Hz
+      duration = random.randint(100, 6000)  
+      # random duration between 100 and 1000 ms
+      time.sleep(2)
+      os.startfile(filename)
+      winsound.Beep(frequency, duration)
